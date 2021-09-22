@@ -1,8 +1,8 @@
-# CS4230-Homework-2
+# CS4230-Homework-1
 
-How to run:
+## How to build
 
 
-docker build -t "d3-labs-hw2" .
+docker build . -t "D3Labs-Homework1"
 
-docker run d3-labs-hw2
+docker run
