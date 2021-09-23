@@ -3,11 +3,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>edu.weber</groupId>
-	<artifactId>hw1-new</artifactId>
+	<artifactId>hw2</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>Homework1-new</name>
-	<description>homework pieces 1, rewritten</description>
+	<name>Homework2</name>
+	<description>homework pieces 2</description>
 	<dependencies>
 		<dependency>
 			<groupId>org.flywaydb</groupId>

@@ -6,6 +6,7 @@ import java.util.Collection;
 
 import edu.weber.model.Address;
 import edu.weber.model.Contact;
+import edu.weber.repository.ContactRepository;
 
 public class ContactService {
 
@@ -43,7 +44,10 @@ public class ContactService {
 	
 	
 	public Collection<Contact> getContacts(){
-		return contacts;
+		//return contacts;
+		ContactRepository repo = ContactRepository.getInstance();
+		
+		return repo.getAllContacts();
 	}
 	
 	

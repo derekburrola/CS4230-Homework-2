@@ -1,4 +1,6 @@
-/Volumes/Macintosh HD/Users/der3kburrola/Google Drive/Personal/School/Weber/Fall 2021/CS 4230/eclipse-workspace/CS4230/homework-2/src/main/java/edu/weber/model/Address.java
-/Volumes/Macintosh HD/Users/der3kburrola/Google Drive/Personal/School/Weber/Fall 2021/CS 4230/eclipse-workspace/CS4230/homework-2/src/main/java/edu/weber/servlet/MyServlet.java
-/Volumes/Macintosh HD/Users/der3kburrola/Google Drive/Personal/School/Weber/Fall 2021/CS 4230/eclipse-workspace/CS4230/homework-2/src/main/java/edu/weber/model/Contact.java
-/Volumes/Macintosh HD/Users/der3kburrola/Google Drive/Personal/School/Weber/Fall 2021/CS 4230/eclipse-workspace/CS4230/homework-2/src/main/java/edu/weber/contact/ContactService.java
+/Volumes/Macintosh HD/Users/der3kburrola/Google Drive/Personal/School/Weber/Fall 2021/CS 4230/eclipse-workspace/CS4230/CS4230-Homework-2/src/main/java/edu/weber/model/Contact.java
+/Volumes/Macintosh HD/Users/der3kburrola/Google Drive/Personal/School/Weber/Fall 2021/CS 4230/eclipse-workspace/CS4230/CS4230-Homework-2/src/main/java/edu/weber/contact/ContactService.java
+/Volumes/Macintosh HD/Users/der3kburrola/Google Drive/Personal/School/Weber/Fall 2021/CS 4230/eclipse-workspace/CS4230/CS4230-Homework-2/src/main/java/edu/weber/repository/ContactRepository.java
+/Volumes/Macintosh HD/Users/der3kburrola/Google Drive/Personal/School/Weber/Fall 2021/CS 4230/eclipse-workspace/CS4230/CS4230-Homework-2/src/main/java/edu/weber/model/Address.java
+/Volumes/Macintosh HD/Users/der3kburrola/Google Drive/Personal/School/Weber/Fall 2021/CS 4230/eclipse-workspace/CS4230/CS4230-Homework-2/src/main/java/edu/weber/servlet/MyServlet.java
+/Volumes/Macintosh HD/Users/der3kburrola/Google Drive/Personal/School/Weber/Fall 2021/CS 4230/eclipse-workspace/CS4230/CS4230-Homework-2/src/main/java/edu/weber/repository/DatabaseConnection.java

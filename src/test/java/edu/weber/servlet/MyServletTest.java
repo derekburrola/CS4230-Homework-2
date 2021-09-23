@@ -47,36 +47,36 @@ public class MyServletTest {
 	} 
 	
 	
-	
-	@Test
-	public void doGetHasRequestAttributeContacts() throws ServletException, IOException {
-		ArgumentCaptor<Collection<String>> servletRequestCapture = ArgumentCaptor.forClass(Collection.class);
-		//ArgumentCaptor<String> src = ArgumentCaptor.forClass(String.class);
-		when(request.getRequestDispatcher(ArgumentMatchers.any(String.class))).thenReturn(requestDispatcher);
-		when(request.getParameter("err")).thenReturn("");
-		testObj.doGet(request, response);
-
-
-		verify(request, times(2)).setAttribute(ArgumentMatchers.any(String.class), servletRequestCapture.capture());
-		//verify(request, times(1)).setAttribute(ArgumentMatchers.any(String.class), src);
-		Assert.assertNotNull(servletRequestCapture.getValue());
-
-	}
-
-	@Test
-	public void doGetHasRequestAttributeContactsHasDefault() throws ServletException, IOException {
-		ArgumentCaptor<Set<Contact>> servletRequestCapture = ArgumentCaptor.forClass(Set.class);
-
-		when(request.getRequestDispatcher(ArgumentMatchers.any(String.class))).thenReturn(requestDispatcher);
-		//when(request.getParameter("err")).thenReturn("");
-		testObj.doGet(request, response);
-
-		verify(request, times(2)).setAttribute(ArgumentMatchers.any(String.class), servletRequestCapture.capture());
-
-		Set contactsCollection = servletRequestCapture.getValue();
-		Assert.assertTrue(contactsCollection.size() > 0);
-
-	}	 
+//	
+//	@Test
+//	public void doGetHasRequestAttributeContacts() throws ServletException, IOException {
+//		ArgumentCaptor<Collection<String>> servletRequestCapture = ArgumentCaptor.forClass(Collection.class);
+//		//ArgumentCaptor<String> src = ArgumentCaptor.forClass(String.class);
+//		when(request.getRequestDispatcher(ArgumentMatchers.any(String.class))).thenReturn(requestDispatcher);
+//		when(request.getParameter("err")).thenReturn("");
+//		testObj.doGet(request, response);
+//
+//
+//		verify(request, times(2)).setAttribute(ArgumentMatchers.any(String.class), servletRequestCapture.capture());
+//		//verify(request, times(1)).setAttribute(ArgumentMatchers.any(String.class), src);
+//		Assert.assertNotNull(servletRequestCapture.getValue());
+//
+//	}
+//
+//	@Test
+//	public void doGetHasRequestAttributeContactsHasDefault() throws ServletException, IOException {
+//		ArgumentCaptor<Set<Contact>> servletRequestCapture = ArgumentCaptor.forClass(Set.class);
+//
+//		when(request.getRequestDispatcher(ArgumentMatchers.any(String.class))).thenReturn(requestDispatcher);
+//		//when(request.getParameter("err")).thenReturn("");
+//		testObj.doGet(request, response);
+//
+//		verify(request, times(2)).setAttribute(ArgumentMatchers.any(String.class), servletRequestCapture.capture());
+//
+//		Set contactsCollection = servletRequestCapture.getValue();
+//		Assert.assertTrue(contactsCollection.size() > 0);
+//
+//	}	 
 
 
   

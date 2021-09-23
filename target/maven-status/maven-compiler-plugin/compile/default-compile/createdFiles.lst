@@ -1,3 +1,5 @@
+edu/weber/repository/ContactRepository.class
+edu/weber/repository/DatabaseConnection.class
 edu/weber/contact/ContactService.class
 edu/weber/model/Address.class
 edu/weber/model/Contact.class
