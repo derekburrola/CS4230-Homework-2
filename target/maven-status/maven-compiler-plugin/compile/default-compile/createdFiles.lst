@@ -1,3 +1,4 @@
+edu/weber/servlet/FlywayServletListener.class
 edu/weber/repository/ContactRepository.class
 edu/weber/repository/DatabaseConnection.class
 edu/weber/contact/ContactService.class

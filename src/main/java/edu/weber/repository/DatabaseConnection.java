@@ -14,6 +14,7 @@ public class DatabaseConnection {
 	private static final String MYSQL_DATABASE_KEY = "MYSQL_DATABASE";
 
 	
+	
 	private static DataSource dataSource;
 	
 	private DatabaseConnection() {
@@ -26,8 +27,8 @@ public class DatabaseConnection {
 			MysqlDataSource source = new MysqlDataSource();
 			source.setDatabaseName(System.getenv(MYSQL_DATABASE_KEY));
 			source.setUrl(getMySQLUrl());
-			source.setUser(MYSQL_USER_KEY);
-			source.setPassword(MYSQL_PASSWORD_KEY);
+			source.setUser(System.getenv(MYSQL_USER_KEY));
+			source.setPassword(System.getenv(MYSQL_PASSWORD_KEY));
 			
 			dataSource = source;
 			
@@ -52,7 +53,7 @@ public class DatabaseConnection {
 		if(url.startsWith("jdbc:mysql")) {
 			return url;
 		} else {
-			return String.format("%s%s%s", "jdbc:mysql://",url,schema);
+			return String.format("%s%s/%s", "jdbc:mysql://", url, schema);
 		}
 	}
 }

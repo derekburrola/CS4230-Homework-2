@@ -2,6 +2,7 @@ package edu.weber.contact;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.sql.SQLException;
 import java.util.Collection;
 
 import edu.weber.model.Address;
@@ -47,7 +48,13 @@ public class ContactService {
 		//return contacts;
 		ContactRepository repo = ContactRepository.getInstance();
 		
-		return repo.getAllContacts();
+		try {
+			return repo.getAllContacts();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	

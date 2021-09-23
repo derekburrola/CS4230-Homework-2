@@ -1,7 +1,10 @@
 package edu.weber.repository;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -31,8 +34,17 @@ public class ContactRepository {
 		return contactRepository;
 	}	
 	
-	public List<Contact> getAllContacts(){
-		return null;
+	public List<Contact> getAllContacts() throws SQLException {
+		PreparedStatement contactStatement = db.prepareStatement(CONTACT_GET.toString());
+		ResultSet rs = contactStatement.executeQuery();
+		
+		List<Contact> response = new ArrayList<Contact>();
+		while(rs.next()) {
+			Contact c = new Contact();
+			c.setFirstName(rs.getString("firstName"));
+			response.add(c);
+		}
+		return response;
 	}
 	
 	private static final String CONTACT_GET = "SELECT "
