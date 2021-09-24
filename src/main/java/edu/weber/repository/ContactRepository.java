@@ -47,16 +47,42 @@ public class ContactRepository {
 		return response;
 	}
 	
+	public void addContact(Contact c)  {
+		PreparedStatement contactStatement;
+		try {
+			contactStatement = db.prepareStatement(CONTACT_POST.toString());
+			ResultSet rs = contactStatement.executeQuery();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
 	private static final String CONTACT_GET = "SELECT "
-			+ "c.ID as contactID, "
-			+ "c.FIRST_NAME as firstName, "
-			+ "c.LAST_NAME as lastName, "
-			+ "c.PHONE_NUMBER as phoneNumber, "
-			+ "a.ID as addressID, "
-			+ "a.ADDRESS_TYPE as addressType, "
-			+ "a.ADDRESS1 as address1, "
-			+ "a.ADDRESS2 as address2, "
-			+ "a.CITY as city, "
-			+ "a.STATE as state, "
-			+ "a.ZIPCODE as zipCode ";
+			+ "CONTACT.ID as contactID, "
+			+ "CONTACT.FIRST_NAME as firstName, "
+			+ "CONTACT.LAST_NAME as lastName, "
+			+ "CONTACT.PHONE_NUMBER as phoneNumber, "
+			+ "ADDRESS.ID as addressID, "
+			+ "ADDRESS.ADDRESS_TYPE as addressType, "
+			+ "ADDRESS.ADDRESS1 as address1, "
+			+ "ADDRESS.ADDRESS2 as address2, "
+			+ "ADDRESS.CITY as city, "
+			+ "ADDRESS.STATE as state, "
+			+ "ADDRESS.ZIPCODE as zipCode "
+			+ "FROM CONTACT "
+			+ "INNER JOIN ADDRESS "
+			+ "ON CONTACT.ID = ADDRESS.CONTACT_ID ";
+	
+	private static final String CONTACT_POST = "INSERT INTO CONTACT(FIRST_NAME, LAST_NAME, PHONE_NUMBER "
+			+ "VALUES () ";
+
+
+
+
+
+
+
+
 }

@@ -45,7 +45,7 @@ public class ContactService {
 	
 	
 	public Collection<Contact> getContacts(){
-		//return contacts;
+//		return contacts;
 		ContactRepository repo = ContactRepository.getInstance();
 		
 		try {

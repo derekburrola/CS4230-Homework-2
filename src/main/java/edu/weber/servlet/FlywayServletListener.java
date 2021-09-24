@@ -14,13 +14,11 @@ public class FlywayServletListener implements ServletContextListener {
 
 	public void contextInitialized(ServletContextEvent sce) {
 		// TODO Auto-generated method stub
-		DatabaseConnection dbc = (DatabaseConnection) DatabaseConnection.getDataSource();
-		Flyway flyway = Flyway.configure().dataSource((DataSource) dbc).load();
+		
+		Flyway flyway = Flyway.configure().dataSource(DatabaseConnection.getDataSource()).load();
 		System.out.println("Starting FlyWay Migration");
 		flyway.migrate();
 		System.out.println("Finished FlyWay Migration");
 
 	}
-
-
 }
