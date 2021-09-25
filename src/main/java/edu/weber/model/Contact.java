@@ -22,7 +22,10 @@ public class Contact implements Serializable{
 	}
 	
 	public Contact(String firstName, String lastName, Set<String> phoneNumbers, Address address[]) {
-		
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.phoneNumbers = phoneNumbers;
+		this.address = address;
 	}
 
 

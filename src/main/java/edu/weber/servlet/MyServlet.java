@@ -56,7 +56,7 @@ public class MyServlet extends HttpServlet{
 		inputMap.put("inputCity", city);
 		inputMap.put("inputState", state);
 		inputMap.put("inputZip", zip);
-		inputMap.put("inpuAddressType", type);
+		inputMap.put("inputAddressType", type);
 		
 		if(areInputsValid(inputMap) ) {
 

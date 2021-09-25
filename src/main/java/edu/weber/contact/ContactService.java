@@ -45,13 +45,11 @@ public class ContactService {
 	
 	
 	public Collection<Contact> getContacts(){
-//		return contacts;
 		ContactRepository repo = ContactRepository.getInstance();
 		
 		try {
 			return repo.getAllContacts();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
@@ -59,7 +57,15 @@ public class ContactService {
 	
 	
 	public void addContact(Contact c) {
-		contacts.add(c);
+		ContactRepository repo = ContactRepository.getInstance();
+		
+		try {
+			repo.addContact(c);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		//contacts.add(c);
 	}
 	
 	public static ContactService getInstance() {
