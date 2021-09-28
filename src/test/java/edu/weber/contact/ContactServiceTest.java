@@ -18,27 +18,36 @@ import org.mockito.junit.MockitoJUnitRunner;
 import edu.weber.model.Contact;
 import edu.weber.repository.ContactRepository;
 
-
+@RunWith(MockitoJUnitRunner.class)
 public class ContactServiceTest {
-	
+
+
 	ContactService obj;
-	
+
 	@Mock 
 	ContactRepository contactRepo;
-	
+
 	@Before
 	public void setup() {
 		obj = new ContactService(contactRepo); 
 	}
-	
+
+	@Test
+	public void passTest() {
+
+		Assert.assertEquals(true, true);
+	}
+
+
 
 	@Test
 	public void testGetContactsIsNull() throws SQLException {
 		when(contactRepo.getAllContacts()).thenReturn(null);
 		Collection<Contact> result = obj.getContacts();
 		Assert.assertEquals(result, null);
+
 	}
-	
+
 	@Test
 	public void testGetContactsHasContact() throws SQLException{
 		Contact a = new Contact("Derek", "Burrola");
@@ -46,13 +55,21 @@ public class ContactServiceTest {
 		contacts.add(a);
 		contacts.add(a);
 		Collection<Contact> expected = contacts;
-		
+
 		when(contactRepo.getAllContacts()).thenReturn(contacts);
 		Collection<Contact> result = obj.getContacts();
 		Assert.assertEquals(result, expected);
 	}
 
-	
+	//?? This throws an error, which should be handled
+	@Test
+	public void testGetContactSQLException() throws SQLException{
+		when(contactRepo.getAllContacts()).thenThrow(new SQLException());
+		obj = new ContactService(contactRepo);
+		obj.getContacts();
+	}
+
+
 	@Test
 	public void testAddContact() throws SQLException {
 		int expectedCount = 1;
@@ -60,9 +77,9 @@ public class ContactServiceTest {
 		List<Contact> contacts = new ArrayList<Contact>();
 		contacts.add(a);
 		when(contactRepo.getAllContacts()).thenReturn(contacts);
-		
+
 		obj.addContact(a);
-		
+
 		Collection<Contact> result = obj.getContacts();
 		int count = result.size();
 		Assert.assertEquals(count, expectedCount);

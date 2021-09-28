@@ -32,6 +32,11 @@ import org.mockito.ArgumentMatchers;
 
 public class ContactRepositoryTest {
 
+	@Test
+	public void passTest() {
+
+		Assert.assertEquals(true, true);
+	}
 	ContactRepository repo;
 
 	@Mock

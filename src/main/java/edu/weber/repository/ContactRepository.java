@@ -20,7 +20,7 @@ public class ContactRepository {
 	private DataSource datasource;
 	private Connection db;
 	
-	private ContactRepository(){
+	public ContactRepository(){
 		this.datasource = DatabaseConnection.getDataSource();
 		try { 
 			this.db = this.datasource.getConnection();

@@ -30,12 +30,8 @@ public class DatabaseConnectionTest {
 	
 	@Test
 	public void getUrlStringTest() {
-		Map<String,String> m = new HashMap<String,String>();
 		
-		m.put("MYSQL_URL", "localhost:3306");
-		m.put("MYSQL_USER", "cs4230-user");
-		m.put("MYSQL_PASSWORD", "password");
-		m.put("MYSQL_DATABASE", "cs4230");
+		//PowerMockito.mockStatic(System.class);
 		
 		try {
 			
@@ -58,15 +54,6 @@ public class DatabaseConnectionTest {
 	}
 	
 
-	private void restoreSystemProperties(Object object) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	//	@Test								
-	//	public void getUrlFormatTest() {
-	//		Assert.assertEquals(true, true);
-	//	}
 	@Test
 	public void passTest() {
 

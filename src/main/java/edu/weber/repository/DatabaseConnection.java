@@ -69,15 +69,4 @@ public class DatabaseConnection {
 	public static String getEnv(String s) {
 		return System.getenv(s);
 	}
-	
-	public static Map<String,String> getEnvironmentVariables(){
-		Map<String,String> m = new HashMap<String,String>();
-		
-		m.put(MYSQL_URL_KEY, System.getenv(MYSQL_URL_KEY));
-		m.put(MYSQL_USER_KEY, System.getenv(MYSQL_USER_KEY));
-		m.put(MYSQL_PASSWORD_KEY, System.getenv(MYSQL_PASSWORD_KEY));
-		m.put(MYSQL_DATABASE_KEY, System.getenv(MYSQL_DATABASE_KEY));
-		
-		return m;
-	}
 }

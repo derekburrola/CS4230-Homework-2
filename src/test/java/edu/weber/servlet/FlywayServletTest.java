@@ -12,7 +12,7 @@ import org.junit.Before;
 
 @RunWith(MockitoJUnitRunner.class)
 public class FlywayServletTest {
-
+	
 	@Mock 
 	DatabaseConnection db;
 	
