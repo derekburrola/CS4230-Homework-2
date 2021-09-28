@@ -26,9 +26,12 @@ public class DatabaseConnection {
 	public static DataSource getDataSource() {
 		if(null == dataSource) {
 			// Create data source
+			String url = System.getenv(MYSQL_URL_KEY);
+			String schema = System.getenv(MYSQL_DATABASE_KEY);
+			
 			MysqlDataSource source = new MysqlDataSource();
-			source.setDatabaseName(System.getenv(MYSQL_DATABASE_KEY));
-			source.setUrl(getMySQLUrl());
+			source.setDatabaseName(schema);
+			source.setUrl(getMySQLUrl(url, schema));
 			source.setUser(System.getenv(MYSQL_USER_KEY));
 			source.setPassword(System.getenv(MYSQL_PASSWORD_KEY));
 			
@@ -46,27 +49,16 @@ public class DatabaseConnection {
 		return dataSource;
 	}
 	
+	
 	/*
 	 * Returns the sql url based on the existing url type
 	 * */
-	protected static String getMySQLUrl() {
-//		String url = System.getenv(MYSQL_URL_KEY);
-//		String schema = System.getenv(MYSQL_DATABASE_KEY);
-		
-		
-		String url = getEnv(MYSQL_URL_KEY);
-		String schema = getEnv(MYSQL_DATABASE_KEY);
-		
+	protected static String getMySQLUrl(String url, String schema) {		
 		if(url.startsWith("jdbc:mysql")) {
-			System.out.println(url);
 			return url;
 		} else {
 			String newURL = String.format("%s%s/%s", "jdbc:mysql://", url, schema); 
 			return newURL;
 		}
-	}
-	
-	public static String getEnv(String s) {
-		return System.getenv(s);
 	}
 }

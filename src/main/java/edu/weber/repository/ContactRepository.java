@@ -16,7 +16,7 @@ import edu.weber.model.Contact;
 
 public class ContactRepository {
 
-	private static ContactRepository contactRepository;
+	public static ContactRepository contactRepository;
 	private DataSource datasource;
 	private Connection db;
 	

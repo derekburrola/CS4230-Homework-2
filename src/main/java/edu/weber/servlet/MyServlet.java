@@ -23,7 +23,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public class MyServlet extends HttpServlet{
 
-
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		ContactService service = ContactService.getInstance()
@@ -60,7 +60,7 @@ public class MyServlet extends HttpServlet{
 		
 		if(areInputsValid(inputMap) ) {
 
-			ContactService cs = ContactService.getInstance();
+			ContactService service = ContactService.getInstance();
 
 			Set<String> phones = new HashSet<String>();
 			phones.add(phn);
@@ -71,7 +71,7 @@ public class MyServlet extends HttpServlet{
 			//?? Make sure to validate the type of address being passed in
 
 			Contact c = new Contact(fN, lN, phones, addr);
-			cs.addContact(c); 
+			service.addContact(c); 
 
 
 			resp.sendRedirect("./");
