@@ -5,7 +5,6 @@ import java.util.Set;
 import java.sql.SQLException;
 import java.util.Collection;
 
-import edu.weber.model.Address;
 import edu.weber.model.Contact;
 import edu.weber.repository.ContactRepository;
 
@@ -14,39 +13,17 @@ public class ContactService {
 	private static ContactService INSTANCE;
 	
 	private static Set<Contact> contacts = new HashSet<Contact>();
+	private ContactRepository repo;
 
-	private ContactService() {
-		resetSet();
-	}
+	public ContactService() {
+		repo = ContactRepository.getInstance();
+	} 
 	
-	protected void resetSet() {
-		contacts = new HashSet<Contact>();
-		Address addr = new Address("12 Starvalley", "galaga", "Space", "00000");
-		Address addr2 = new Address("21 Andraway", "galaga", "Space", "00071");
-		
-		Address addresses[] = new Address[2];
-		
-		addresses[0] = addr;
-		addresses[1] = addr2;
-		
-		Contact c1 = new Contact("Derek", "Burrola");
-		Set<String> phns = new HashSet<String>();
-		phns.add("123456789");
-		phns.add("0987654");
-		c1.setPhoneNumbers(phns);
-		c1.setAddress(addresses);
-		contacts.add(c1);
-		
-		Contact c2 = new Contact("Edgar", "Poe");
-		c2.setPhoneNumbers(phns);
-		c2.setAddress(addresses);
-		contacts.add(c2);
+	public ContactService(ContactRepository repo) {
+		this.repo = repo;
 	}
-	
 	
 	public Collection<Contact> getContacts(){
-		ContactRepository repo = ContactRepository.getInstance();
-		
 		try {
 			return repo.getAllContacts();
 		} catch (SQLException e) {
@@ -57,15 +34,7 @@ public class ContactService {
 	
 	
 	public void addContact(Contact c) {
-		ContactRepository repo = ContactRepository.getInstance();
-		
-		try {
-			repo.addContact(c);
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-		}
-		//contacts.add(c);
+		repo.addContact(c);
 	}
 	
 	public static ContactService getInstance() {

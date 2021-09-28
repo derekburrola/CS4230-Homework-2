@@ -1,6 +1,8 @@
 package edu.weber.repository;
 
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.sql.DataSource;
 
@@ -17,8 +19,8 @@ public class DatabaseConnection {
 	
 	private static DataSource dataSource;
 	
-	private DatabaseConnection() {
-		
+	public DatabaseConnection() {
+		 
 	}
 	
 	public static DataSource getDataSource() {
@@ -47,13 +49,35 @@ public class DatabaseConnection {
 	/*
 	 * Returns the sql url based on the existing url type
 	 * */
-	private static String getMySQLUrl() {
-		String url = System.getenv(MYSQL_URL_KEY);
-		String schema = System.getenv(MYSQL_DATABASE_KEY);
+	protected static String getMySQLUrl() {
+//		String url = System.getenv(MYSQL_URL_KEY);
+//		String schema = System.getenv(MYSQL_DATABASE_KEY);
+		
+		
+		String url = getEnv(MYSQL_URL_KEY);
+		String schema = getEnv(MYSQL_DATABASE_KEY);
+		
 		if(url.startsWith("jdbc:mysql")) {
+			System.out.println(url);
 			return url;
 		} else {
-			return String.format("%s%s/%s", "jdbc:mysql://", url, schema);
+			String newURL = String.format("%s%s/%s", "jdbc:mysql://", url, schema); 
+			return newURL;
 		}
+	}
+	
+	public static String getEnv(String s) {
+		return System.getenv(s);
+	}
+	
+	public static Map<String,String> getEnvironmentVariables(){
+		Map<String,String> m = new HashMap<String,String>();
+		
+		m.put(MYSQL_URL_KEY, System.getenv(MYSQL_URL_KEY));
+		m.put(MYSQL_USER_KEY, System.getenv(MYSQL_USER_KEY));
+		m.put(MYSQL_PASSWORD_KEY, System.getenv(MYSQL_PASSWORD_KEY));
+		m.put(MYSQL_DATABASE_KEY, System.getenv(MYSQL_DATABASE_KEY));
+		
+		return m;
 	}
 }

@@ -21,4 +21,4 @@ public class FlywayServletListener implements ServletContextListener {
 		System.out.println("Finished FlyWay Migration");
 
 	}
-}
+} 

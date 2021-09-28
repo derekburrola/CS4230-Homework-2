@@ -39,7 +39,7 @@ public class MyServlet extends HttpServlet{
 
 		String fN = req.getParameter("inputfName");
 		String lN = req.getParameter("inputlName");
-		String add1 = req.getParameter("inputAddress");
+		String add1 = req.getParameter("inputAddress"); 
 		String add2 = req.getParameter("inputAddress2");
 		String phn = req.getParameter("inputPhone");
 		String city = req.getParameter("inputCity");

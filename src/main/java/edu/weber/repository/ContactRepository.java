@@ -1,4 +1,4 @@
-package edu.weber.repository;
+ package edu.weber.repository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -22,7 +22,7 @@ public class ContactRepository {
 	
 	private ContactRepository(){
 		this.datasource = DatabaseConnection.getDataSource();
-		try {
+		try { 
 			this.db = this.datasource.getConnection();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -37,7 +37,7 @@ public class ContactRepository {
 		return contactRepository;
 	}	
 	
-	public List<Contact> getAllContacts() throws SQLException {
+	public List<Contact> getAllContacts() throws SQLException { 
 		PreparedStatement contactStatement = db.prepareStatement(CONTACT_GET.toString());
 		ResultSet rs = contactStatement.executeQuery();
 		
@@ -92,7 +92,7 @@ public class ContactRepository {
 		PreparedStatement contactStatement;
 		try {
 			contactStatement = db.prepareStatement(ADDRESS_POST.toString());
-			
+			 
 			contactStatement.setString(1, a.getAddress1());
 			contactStatement.setString(2, a.getAddress2());
 			contactStatement.setString(3, a.getCity());
