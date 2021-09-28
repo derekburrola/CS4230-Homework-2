@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: edu.weber.repository.DatabaseConnectionTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.436 s <<< FAILURE! - in edu.weber.repository.DatabaseConnectionTest
-testGetDataSource(edu.weber.repository.DatabaseConnectionTest)  Time elapsed: 0.022 s  <<< ERROR!
+Tests run: 4, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.417 s <<< FAILURE! - in edu.weber.repository.DatabaseConnectionTest
+testGetDataSource(edu.weber.repository.DatabaseConnectionTest)  Time elapsed: 0.021 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "String.startsWith(String)" because "url" is null
 	at edu.weber.repository.DatabaseConnectionTest.testGetDataSource(DatabaseConnectionTest.java:76)
 

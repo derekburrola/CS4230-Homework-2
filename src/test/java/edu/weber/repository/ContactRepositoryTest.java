@@ -95,6 +95,20 @@ public class ContactRepositoryTest {
 	
 	
 	@Test
+	public void testAddContact() throws SQLException {
+		Contact c = new Contact();
+		c.setFirstName("hi");
+		c.setLastName("there");
+		
+		when(db.prepareStatement(ArgumentMatchers.any(String.class))).thenReturn(stmt);
+		
+		
+		when(stmt.executeUpdate()).thenReturn(1);
+		when(this.db.prepareStatement(Mockito.startsWith("INSERT "))).thenReturn(null);
+		repo.addContact(c);
+	}
+	
+	@Test
 	public void testAddAddress() throws SQLException {
 		Address a = new Address();
 		a.setAddress1("aa");

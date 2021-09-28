@@ -80,7 +80,6 @@ public class ContactRepository {
 			contactStatement.setString(3, c.getPhoneNumbers().toString());
 			
 			int result = contactStatement.executeUpdate();
-			System.out.println("Add Contact Result: " + result);
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException("Add Contact Error: ");
