@@ -3,6 +3,7 @@ package edu.weber.repository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import edu.weber.model.Contact;
@@ -29,7 +30,6 @@ import org.junit.Before;
 import org.mockito.ArgumentMatchers;
 
 @RunWith(MockitoJUnitRunner.class)
-
 public class ContactRepositoryTest {
 
 	@Test
@@ -40,10 +40,10 @@ public class ContactRepositoryTest {
 	ContactRepository repo;
 
 	@Mock
-	private DataSource ds;
+	private DataSource datasource;
 
 	@Mock
-	private Connection c;
+	private Connection db;
 
 	@Mock
 	private PreparedStatement stmt;
@@ -59,9 +59,9 @@ public class ContactRepositoryTest {
 	// ArgumentMatchers.any(String.class
 	@Before
 	public void setup() throws Exception {
-		assertNotNull(ds);
-		when(c.prepareStatement(any(String.class))).thenReturn(stmt);
-		when(ds.getConnection()).thenReturn(c);
+		assertNotNull(datasource);
+		when(db.prepareStatement(any(String.class))).thenReturn(stmt);
+		when(datasource.getConnection()).thenReturn(db);
 
 
 		cont = new Contact();
@@ -102,4 +102,22 @@ public class ContactRepositoryTest {
 		Collection<Contact> result = repo.getAllContacts();
 		Assert.assertEquals(result, null);
 	}
+	
+	
+	@Test
+	public void testAddAddres() throws SQLException {
+		Address a = new Address();
+		when(stmt.executeUpdate()).thenReturn(1);
+		when(this.db.prepareStatement(Mockito.startsWith("INSERT "))).thenReturn(null);
+		repo.addAddress(a);
+		
+		//Mockito.verify(repo.addAddress(a), Mockito.atLeastOnce()).execute();
+	}
+	
+	
+	
+	
+	
+	
+	
 }

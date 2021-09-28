@@ -71,7 +71,7 @@ public class DatabaseConnectionTest {
 		source.setPassword("password");
 		
 		
-		when(conn.getSQLSource(ArgumentMatchers.any(String.class), ArgumentMatchers.any(String.class))).thenReturn(source);
+		//when(conn.getSQLSource(ArgumentMatchers.any(String.class), ArgumentMatchers.any(String.class))).thenReturn(source);
 		//when(dataSource.getConnection().isValid(5)).thenReturn(true);
 		conn.getDataSource();
 		Assert.assertEquals(dataSource, null);
