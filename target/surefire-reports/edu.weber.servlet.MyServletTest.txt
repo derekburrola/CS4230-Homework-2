@@ -1,4 +1,26 @@
 -------------------------------------------------------------------------------
 Test set: edu.weber.servlet.MyServletTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in edu.weber.servlet.MyServletTest
+Tests run: 7, Failures: 1, Errors: 3, Skipped: 0, Time elapsed: 0.021 s <<< FAILURE! - in edu.weber.servlet.MyServletTest
+testPost(edu.weber.servlet.MyServletTest)  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "String.startsWith(String)" because "url" is null
+	at edu.weber.servlet.MyServletTest.testPost(MyServletTest.java:102)
+
+doGetHasRequestAttributeContactsHasDefault(edu.weber.servlet.MyServletTest)  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "String.startsWith(String)" because "url" is null
+	at edu.weber.servlet.MyServletTest.doGetHasRequestAttributeContactsHasDefault(MyServletTest.java:86)
+
+doGetHasRequestAttributeContacts(edu.weber.servlet.MyServletTest)  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "String.startsWith(String)" because "url" is null
+	at edu.weber.servlet.MyServletTest.doGetHasRequestAttributeContacts(MyServletTest.java:71)
+
+testPostMethod(edu.weber.servlet.MyServletTest)  Time elapsed: 0.003 s  <<< FAILURE!
+org.mockito.exceptions.verification.WantedButNotInvoked: 
+
+Wanted but not invoked:
+request.getParameter(<Capturing argument>);
+-> at edu.weber.servlet.MyServletTest.testPostMethod(MyServletTest.java:117)
+Actually, there were zero interactions with this mock.
+
+	at edu.weber.servlet.MyServletTest.testPostMethod(MyServletTest.java:117)
+

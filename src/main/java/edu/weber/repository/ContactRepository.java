@@ -24,7 +24,7 @@ public class ContactRepository {
 		this.datasource = DatabaseConnection.getDataSource();
 		try { 
 			this.db = this.datasource.getConnection();
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -36,7 +36,7 @@ public class ContactRepository {
 		}
 		return contactRepository;
 	}	
-	
+	 
 	public List<Contact> getAllContacts() throws SQLException { 
 		PreparedStatement contactStatement = db.prepareStatement(CONTACT_GET.toString());
 		ResultSet rs = contactStatement.executeQuery();
@@ -101,7 +101,6 @@ public class ContactRepository {
 			contactStatement.setString(6, a.getAddressType());
 			
 			int result = contactStatement.executeUpdate();
-			System.out.println("Add Address Result: " + result);
 		}
 		catch(Exception e) {
 			e.printStackTrace();
