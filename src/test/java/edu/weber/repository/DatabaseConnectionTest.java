@@ -24,7 +24,7 @@ import org.powermock.modules.junit4.PowerMockRunner;
 
 import com.mysql.cj.jdbc.MysqlDataSource;
 
-
+//@RunWith(MockitoJUnitRunner.class)
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({System.class})
 public class DatabaseConnectionTest {
