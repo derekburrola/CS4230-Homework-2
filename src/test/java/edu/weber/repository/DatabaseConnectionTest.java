@@ -35,7 +35,7 @@ public class DatabaseConnectionTest {
 //	@Mock
 //	MysqlDataSource source;
 //	
-//	DatabaseConnection conn;
+	DatabaseConnection conn;
 //
 //	
 //	@Before
@@ -43,27 +43,27 @@ public class DatabaseConnectionTest {
 //		conn = new DatabaseConnection();
 //	}
 //	
-//	@Test
-//	public void testGetURLStringFormat() {
-//		String expected = "jdbc:mysql://localhost:2525/megadb";
-//		String url = "localhost:2525";
-//		String schema = "megadb";
-//		
-//		
-//		String result = conn.getMySQLUrl(url, schema);
-//		Assert.assertEquals(result, expected);
-//	}
-//	
-//	@Test
-//	public void testGetURLString() {
-//		String expected = "jdbc:mysql://localhost:2525/megadb";
-//		String url = "jdbc:mysql://localhost:2525/megadb";
-//		String schema = "megadb";
-//		
-//		
-//		String result = conn.getMySQLUrl(url, schema);
-//		Assert.assertEquals(result, expected);
-//	}
+	@Test
+	public void testGetURLStringFormat() {
+		String expected = "jdbc:mysql://localhost:2525/megadb";
+		String url = "localhost:2525";
+		String schema = "megadb";
+		
+		
+		String result = conn.getMySQLUrl(url, schema);
+		Assert.assertEquals(result, expected);
+	}
+	
+	@Test
+	public void testGetURLString() {
+		String expected = "jdbc:mysql://localhost:2525/megadb";
+		String url = "jdbc:mysql://localhost:2525/megadb";
+		String schema = "megadb";
+		
+		
+		String result = conn.getMySQLUrl(url, schema);
+		Assert.assertEquals(result, expected);
+	}
 //
 //	@Test
 //	public void testGetDataSource() throws SQLException {

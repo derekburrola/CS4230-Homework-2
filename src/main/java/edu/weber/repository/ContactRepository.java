@@ -19,10 +19,13 @@ public class ContactRepository {
 	public static ContactRepository contactRepository;
 	private DataSource datasource;
 	private Connection db;
+	private int testing_timesToRunRS;
 	
-	public ContactRepository(Connection db, DataSource ds) {
+	public ContactRepository(Connection db, DataSource ds, Boolean isTesting) {
 		this.db = db;
 		datasource = ds;
+		testing_timesToRunRS = 0;
+		
 	}
 	
 	public ContactRepository(){
@@ -47,7 +50,9 @@ public class ContactRepository {
 		ResultSet rs = contactStatement.executeQuery();
 		
 		List<Contact> response = new ArrayList<Contact>();
-		while(rs.next()) {
+		// This is used for unit testing
+		int timesToRun = getTimesToRun();
+		while(rs.next() || timesToRun > 0) {
 			// Create the contact
 			Contact c = new Contact();
 			c.setFirstName(rs.getString("firstName"));
@@ -70,6 +75,8 @@ public class ContactRepository {
 			c.setAddress(addr);
 			
 			response.add(c);
+			
+			timesToRun--;
 		}
 		return response; 
 	}
@@ -116,6 +123,9 @@ public class ContactRepository {
 		return result;
 	}
 	
+	protected int getTimesToRun() {
+		return testing_timesToRunRS;
+	}
 	
 	
 	private static final String CONTACT_GET = "SELECT "

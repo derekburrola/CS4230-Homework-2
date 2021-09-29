@@ -23,10 +23,18 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public class MyServlet extends HttpServlet{
 
+	ContactService service;
+	
+	public MyServlet(ContactService service) {
+		this.service = service;
+	}
+	
+	public MyServlet() {
+		service = ContactService.getInstance();
+	}
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		ContactService service = ContactService.getInstance()
 ;		req.setAttribute("err", req.getParameter("err"));
 		req.setAttribute("contacts", service.getContacts());
 		req.getRequestDispatcher("/jsp/index.jsp").forward(req, resp);
@@ -60,7 +68,6 @@ public class MyServlet extends HttpServlet{
 		
 		if(areInputsValid(inputMap) ) {
 
-			ContactService service = ContactService.getInstance();
 
 			Set<String> phones = new HashSet<String>();
 			phones.add(phn);

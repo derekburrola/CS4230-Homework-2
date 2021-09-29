@@ -21,6 +21,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
@@ -48,8 +49,8 @@ public class ContactRepositoryTest {
 	@Mock
 	private PreparedStatement stmt;
 
-//	@Mock
-//	private ResultSet rs;
+	@Mock
+	private ResultSet rs;
 //
 //	@Mock
 //	private Contact cont;
@@ -58,7 +59,7 @@ public class ContactRepositoryTest {
 
 	@Before
 	public void setup() throws Exception {
-		repo = new ContactRepository(db, datasource);
+		repo = new ContactRepository(db, datasource, true);
 	}
 
 	@Test
@@ -70,13 +71,24 @@ public class ContactRepositoryTest {
 		//		Assert.assertNotEquals(result, null);
 	}
 
+	@Test 
+	public void testGetAllContactsEmpty() throws SQLException {
+		when(db.prepareStatement(ArgumentMatchers.any(String.class))).thenReturn(stmt);
+		when(stmt.executeQuery()).thenReturn(rs);
+
+		Collection<Contact> result = repo.getAllContacts();
+
+		Assert.assertEquals(result, new ArrayList<Contact>());
+	}
+	
 //	@Test 
-//	public void testGetAllContactsEmpty() throws SQLException {
+//	public void testGetAllContacts() throws SQLException {
 //		when(db.prepareStatement(ArgumentMatchers.any(String.class))).thenReturn(stmt);
 //		when(stmt.executeQuery()).thenReturn(rs);
 //		//when(repo.getAllContacts()).thenReturn(null);
 //
-//		when(rs.next()).thenReturn(true);
+//		//when(rs.next()).thenReturn(true);
+//		when(repo.getTimesToRun()).thenReturn(1);
 //
 //		when(rs.getString("firstName")).thenReturn("Derek");
 //		when(rs.getString("lastName")).thenReturn("Derek");
@@ -93,7 +105,7 @@ public class ContactRepositoryTest {
 //		//Collection<Contact> expected = new List<Contact>();
 //
 //		//Assert.assertNotEquals(result, null);
-//		Assert.assertEquals(result, null);
+//		Assert.assertNotEquals(result, new ArrayList<Contact>());
 //	}
 
 
@@ -124,18 +136,6 @@ public class ContactRepositoryTest {
 		Assert.assertEquals(result, 0);
 	}
 
-//	@Test
-//	public void testAddContactFail() {
-//		Contact c = new Contact("hi", "there");
-//		try {
-//			//when(db.prepareStatement(ArgumentMatchers.any(String.class))).thenThrow(new SQLException());
-//			int result = repo.addContact(c);
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			//e.printStackTrace();
-//			Assert.assertTrue(true);
-//		}
-//	}
 
 	@Test
 	public void testAddAddress() throws SQLException {
