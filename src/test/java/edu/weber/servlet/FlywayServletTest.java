@@ -6,7 +6,11 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import edu.weber.repository.DatabaseConnection;
+import jakarta.servlet.ServletContextEvent;
 
+import static org.mockito.Mockito.verify;
+
+import org.flywaydb.core.Flyway;
 import org.junit.Assert;
 import org.junit.Before;
 
@@ -16,6 +20,12 @@ public class FlywayServletTest {
 	@Mock 
 	DatabaseConnection db;
 	
+	@Mock
+	FlywayServletListener fly;
+	
+	@Mock 
+	ServletContextEvent sce;
+	
 	@Before
 	public void setup() {
 		
@@ -23,7 +33,6 @@ public class FlywayServletTest {
 	
 	@Test
 	public void testFlyway() {
-		
 	}
 	
 	@Test

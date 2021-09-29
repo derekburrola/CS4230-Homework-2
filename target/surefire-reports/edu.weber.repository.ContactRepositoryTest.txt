@@ -1,27 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: edu.weber.repository.ContactRepositoryTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.064 s <<< FAILURE! - in edu.weber.repository.ContactRepositoryTest
-unnecessary Mockito stubbings(edu.weber.repository.ContactRepositoryTest)  Time elapsed: 0.004 s  <<< ERROR!
-org.mockito.exceptions.misusing.UnnecessaryStubbingException: 
-
-Unnecessary stubbings detected in test class: ContactRepositoryTest
-Clean & maintainable test code requires zero unnecessary code.
-Following stubbings are unnecessary (click to navigate to relevant line of code):
-  1. -> at edu.weber.repository.ContactRepositoryTest.testAddAddress(ContactRepositoryTest.java:123)
-  2. -> at edu.weber.repository.ContactRepositoryTest.testAddAddress(ContactRepositoryTest.java:124)
-  3. -> at edu.weber.repository.ContactRepositoryTest.testGetAllContactsEmpty(ContactRepositoryTest.java:76)
-  4. -> at edu.weber.repository.ContactRepositoryTest.testGetAllContactsEmpty(ContactRepositoryTest.java:77)
-  5. -> at edu.weber.repository.ContactRepositoryTest.testGetAllContactsEmpty(ContactRepositoryTest.java:78)
-  6. -> at edu.weber.repository.ContactRepositoryTest.testGetAllContactsEmpty(ContactRepositoryTest.java:80)
-  7. -> at edu.weber.repository.ContactRepositoryTest.testGetAllContactsEmpty(ContactRepositoryTest.java:81)
-  8. -> at edu.weber.repository.ContactRepositoryTest.testGetAllContactsEmpty(ContactRepositoryTest.java:82)
-  9. -> at edu.weber.repository.ContactRepositoryTest.testGetAllContactsEmpty(ContactRepositoryTest.java:83)
-  10. -> at edu.weber.repository.ContactRepositoryTest.testGetAllContactsEmpty(ContactRepositoryTest.java:84)
-  11. -> at edu.weber.repository.ContactRepositoryTest.testGetAllContactsEmpty(ContactRepositoryTest.java:85)
-  12. -> at edu.weber.repository.ContactRepositoryTest.testGetAllContactsEmpty(ContactRepositoryTest.java:87)
-  13. -> at edu.weber.repository.ContactRepositoryTest.testGetAllContactsEmpty(ContactRepositoryTest.java:88)
-  14. -> at edu.weber.repository.ContactRepositoryTest.testAddContact(ContactRepositoryTest.java:106)
-  15. -> at edu.weber.repository.ContactRepositoryTest.testAddContact(ContactRepositoryTest.java:107)
-Please remove unnecessary stubbings or use 'lenient' strictness. More info: javadoc for UnnecessaryStubbingException class.
-
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.134 s - in edu.weber.repository.ContactRepositoryTest

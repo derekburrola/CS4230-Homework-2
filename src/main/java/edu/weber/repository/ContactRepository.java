@@ -20,6 +20,11 @@ public class ContactRepository {
 	private DataSource datasource;
 	private Connection db;
 	
+	public ContactRepository(Connection db, DataSource ds) {
+		this.db = db;
+		datasource = ds;
+	}
+	
 	public ContactRepository(){
 		this.datasource = DatabaseConnection.getDataSource();
 		try { 
@@ -69,7 +74,8 @@ public class ContactRepository {
 		return response; 
 	}
 	
-	public void addContact(Contact c)  {
+	public int addContact(Contact c)  {
+		int result = 0;
 		PreparedStatement contactStatement;
 		
 		try {
@@ -79,15 +85,17 @@ public class ContactRepository {
 			contactStatement.setString(2, c.getLastName());
 			contactStatement.setString(3, c.getPhoneNumbers().toString());
 			
-			int result = contactStatement.executeUpdate();
+			result = contactStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException("Add Contact Error: ");
 		}
-		addAddress(c.getAddress()[0]);
+		addAddress(c.getAddress()[0]); 
+		return result;
 	}
 	
-	public void addAddress(Address a) {
+	public int addAddress(Address a) {
+		int result = 0;
 		PreparedStatement contactStatement;
 		try {
 			contactStatement = db.prepareStatement(ADDRESS_POST.toString());
@@ -99,12 +107,13 @@ public class ContactRepository {
 			contactStatement.setString(5, a.getZipCode());
 			contactStatement.setString(6, a.getAddressType());
 			
-			int result = contactStatement.executeUpdate();
+			result = contactStatement.executeUpdate();
 		}
 		catch(Exception e) {
 			e.printStackTrace();
 			throw new RuntimeException("Add Address Error: ");
 		}
+		return result;
 	}
 	
 	
