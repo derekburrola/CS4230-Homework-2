@@ -62,14 +62,7 @@ public class ContactRepositoryTest {
 		repo = new ContactRepository(db, datasource, true);
 	}
 
-	@Test
-	public void testGetContacts() throws SQLException {
 
-		Assert.assertTrue(true);
-		//
-		//		Collection<Contact> result = repo.getAllContacts();
-		//		Assert.assertNotEquals(result, null);
-	}
 
 	@Test 
 	public void testGetAllContactsEmpty() throws SQLException {
@@ -81,33 +74,6 @@ public class ContactRepositoryTest {
 		Assert.assertEquals(result, new ArrayList<Contact>());
 	}
 	
-//	@Test 
-//	public void testGetAllContacts() throws SQLException {
-//		when(db.prepareStatement(ArgumentMatchers.any(String.class))).thenReturn(stmt);
-//		when(stmt.executeQuery()).thenReturn(rs);
-//		//when(repo.getAllContacts()).thenReturn(null);
-//
-//		//when(rs.next()).thenReturn(true);
-//		when(repo.getTimesToRun()).thenReturn(1);
-//
-//		when(rs.getString("firstName")).thenReturn("Derek");
-//		when(rs.getString("lastName")).thenReturn("Derek");
-//		when(rs.getString("phoneNumber")).thenReturn("555-555-5555");
-//
-//		when(rs.getString("address1")).thenReturn("Rainbow Road");
-//		when(rs.getString("address2")).thenReturn("");
-//		when(rs.getString("city")).thenReturn("Mushroom Kingdom");
-//		when(rs.getString("state")).thenReturn("N64");
-//		when(rs.getString("zipCode")).thenReturn("83443");
-//		when(rs.getString("addressType")).thenReturn("Work");
-//
-//		Collection<Contact> result = repo.getAllContacts();
-//		//Collection<Contact> expected = new List<Contact>();
-//
-//		//Assert.assertNotEquals(result, null);
-//		Assert.assertNotEquals(result, new ArrayList<Contact>());
-//	}
-
 
 	@Test
 	public void testAddContact() throws SQLException {
@@ -127,9 +93,6 @@ public class ContactRepositoryTest {
 		a.setAddressType("a");
 		ad[0] = a;
 		c.setAddress(ad);		
-
-		//when(db.prepareStatement(ArgumentMatchers.any(String.class))).thenReturn(stmt);
-
 
 		when(db.prepareStatement(ArgumentMatchers.any(String.class))).thenReturn(stmt);
 		int result = repo.addContact(c);
